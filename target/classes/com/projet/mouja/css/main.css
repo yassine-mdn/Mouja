@@ -1,0 +1,139 @@
+.root {
+    -fx-base: #EDE7E3;
+    -fx-accent:#16697A ;
+    -fx-default-button: #FFA62B ;
+    -fx-focus-color: #489FB5;
+    -fx-faint-focus-color:  #82C0CC;
+    -fx-focused-text-base-color : ladder(
+            -fx-selection-bar,
+            -fx-light-text-color 45%,
+            -fx-dark-text-color 46%,
+            -fx-dark-text-color 59%,
+            -fx-mid-text-color 60%
+    );
+    -fx-focused-mark-color : -fx-focused-text-base-color ;
+
+}
+
+.text-input:focused {
+    -fx-highlight-text-fill: ladder(
+            -fx-highlight-fill,
+            -fx-light-text-color 45%,
+            -fx-dark-text-color  46%,
+            -fx-dark-text-color  59%,
+            -fx-mid-text-color   60%
+    );
+}
+
+.label{
+    -fx-font: Eras Bold ITC;
+}
+
+.hyperlink{
+    -fx-font: 15px "Eras Light ITC";
+    -fx-text-fill: #489FB5;
+}
+
+.check-box{
+    -fx-font: Eras Bold ITC;
+    -fx-font-size: 12;
+}
+
+.check-box:selected .mark{
+    -fx-background-color: white;
+}
+
+.check-box:selected .box{
+    -fx-background-color: #489FB5;
+}
+
+.button{
+    -fx-background-color: #489FB5;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-font: 15px "Eras Bold ITC";
+}
+
+.button:hover{
+    -fx-background-color: #82C0CC;
+}
+
+.text-field{
+    -fx-background-radius: 5;
+    -fx-font: 15px "Eras Light ITC";
+}
+
+.password-field{
+    -fx-background-radius: 5;
+    -fx-font: 15px "Eras Light ITC";
+}
+
+.notification-bar>.pane {
+    -fx-background-color: #EDE7E3;
+    -fx-padding: 5 5 5 5;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.notification-bar>.pane .title {
+    -fx-font-size: 16px; /*16px;*/
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+}
+
+.notification-bar>.pane .label {
+    -fx-font-size: 1em; /*12px;*/
+    -fx-text-fill: #000;
+    -fx-alignment: top-left;
+}
+
+/******************************************************************************
+ *
+ * Close button
+ *
+ *****************************************************************************/
+
+.notification-bar>.pane .close-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0 0 0 0;
+    -fx-alignment: center;
+}
+
+.notification-bar > .pane .close-button:hover {
+    -fx-background-color: linear-gradient(#a3a3a3, #8b8b8b 34%, #777777 36%, #777777 63%, #8b8b8b 65%, #adadad);
+}
+
+.notification-bar>.pane .close-button:pressed {
+    -fx-background-color: linear-gradient(#a3a3a3, #8b8b8b 34%, #777777 36%, #777777 63%, #8b8b8b 65%, #adadad);
+
+}
+
+.notification-bar>.pane .close-button>.graphic {
+    -fx-background-color: #fff;
+    -fx-scale-shape: false;
+    -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
+}
+
+.notification-bar>.pane .close-button:hover>.graphic {
+    -fx-background-color: #fff;
+}
+
+.notification-bar>.pane .close-button:pressed>.graphic {
+    -fx-background-color: #fff;
+}
+
+.notification-bar>.pane .close-button>.graphic {
+    -fx-shape:
+            "M395.992,296.758l1.794-1.794l7.292,7.292l-1.795,1.794 L395.992,296.758z M403.256,294.992l1.794,1.794l-7.292,7.292l-1.794-1.795 L403.256,294.992z";
+}
+
+VBox{
+    -fx-background-color: #E0CFBB;
+    -fx-border-width: 0 1 0 0; -fx-border-color: red #8C897B green yellow;
+}
+
+#topBar{
+    -fx-background-color: #E0CFBB;
+    -fx-border-width: 0 0 2 0; -fx-border-color: red green #8C897B yellow;
+}
