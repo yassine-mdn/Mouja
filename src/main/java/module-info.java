@@ -6,8 +6,10 @@ module com.projet.mouja {
     requires org.controlsfx.controls;
     requires validatorfx;
     requires org.kordamp.ikonli.javafx;
-    requires eu.hansolo.tilesfx;
+    requires org.kordamp.ikonli.core;
+    requires org.kordamp.ikonli.bootstrapicons;
     requires java.sql;
+
 
     opens com.projet.mouja to javafx.fxml;
     exports com.projet.mouja;

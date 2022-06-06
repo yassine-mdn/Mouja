@@ -26,7 +26,7 @@
 }
 
 .label{
-    -fx-font: Eras Bold ITC;
+    -fx-font-family: "Eras Bold ITC";
 }
 
 .hyperlink{
@@ -35,8 +35,7 @@
 }
 
 .check-box{
-    -fx-font: Eras Bold ITC;
-    -fx-font-size: 12;
+    -fx-font: 12px "Eras Bold ITC";
 }
 
 .check-box:selected .mark{
@@ -68,72 +67,80 @@
     -fx-font: 15px "Eras Light ITC";
 }
 
-.notification-bar>.pane {
-    -fx-background-color: #EDE7E3;
-    -fx-padding: 5 5 5 5;
-    -fx-background-insets: 0, 1, 2;
+.icon-button:pressed{
+    -fx-background-color: #82C0CC;
+    fx-border-color: #16697A;
+    -fx-border-width:  0 0 0 8;
+    -fx-background-radius: 0;
+    -fx-font: 15px "Eras Bold ITC";
+    -fx-text-fill: #16697A;
+
 }
 
-.notification-bar>.pane .title {
-    -fx-font-size: 16px; /*16px;*/
-    -fx-text-fill: red;
-    -fx-font-weight: bold;
+.icon-button:hover{
+
 }
 
-.notification-bar>.pane .label {
-    -fx-font-size: 1em; /*12px;*/
-    -fx-text-fill: #000;
-    -fx-alignment: top-left;
-}
-
-/******************************************************************************
- *
- * Close button
- *
- *****************************************************************************/
-
-.notification-bar>.pane .close-button {
+.icon-button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
     -fx-background-color: transparent;
+    -fx-font: 15px "Eras Bold ITC";
+    -fx-text-fill: #16697A;
+}
+
+.ikonli-font-icon {
+
+    -fx-icon-color:  #16697A;
+    -fx-icon-size: 50px;
+}
+
+.titled-pane
+{
+    -fx-text-fill:  #16697A;
+    -fx-background-color: transparent;
+}
+.titled-pane:focused
+{
+    -fx-text-fill: white;
+}
+.titled-pane > .title
+{
+    -fx-background-color: transparent;
+    -fx-font: 25px "Eras Bold ITC";
+}
+
+.titled-pane:focused > .title
+{
+    -fx-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.titled-pane > .title > .arrow-button
+{
+    -fx-background-color: white;
+    -fx-border-color: white;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
-    -fx-padding: 0 0 0 0;
-    -fx-alignment: center;
-}
-
-.notification-bar > .pane .close-button:hover {
-    -fx-background-color: linear-gradient(#a3a3a3, #8b8b8b 34%, #777777 36%, #777777 63%, #8b8b8b 65%, #adadad);
-}
-
-.notification-bar>.pane .close-button:pressed {
-    -fx-background-color: linear-gradient(#a3a3a3, #8b8b8b 34%, #777777 36%, #777777 63%, #8b8b8b 65%, #adadad);
 
 }
 
-.notification-bar>.pane .close-button>.graphic {
-    -fx-background-color: #fff;
-    -fx-scale-shape: false;
-    -fx-padding: 4.5 4.5 4.5 4.5; /* Graphic is 9x9 px */
+
+
+.titled-pane:collapsed > .title > .arrow-button .arrow
+{
+    -fx-rotate: -90;
 }
 
-.notification-bar>.pane .close-button:hover>.graphic {
-    -fx-background-color: #fff;
+.titled-pane > *.content
+{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
 }
 
-.notification-bar>.pane .close-button:pressed>.graphic {
-    -fx-background-color: #fff;
-}
-
-.notification-bar>.pane .close-button>.graphic {
-    -fx-shape:
-            "M395.992,296.758l1.794-1.794l7.292,7.292l-1.795,1.794 L395.992,296.758z M403.256,294.992l1.794,1.794l-7.292,7.292l-1.794-1.795 L403.256,294.992z";
-}
-
-VBox{
-    -fx-background-color: #E0CFBB;
-    -fx-border-width: 0 1 0 0; -fx-border-color: red #8C897B green yellow;
-}
-
-#topBar{
-    -fx-background-color: #E0CFBB;
-    -fx-border-width: 0 0 2 0; -fx-border-color: red green #8C897B yellow;
+.titled-pane:focused > .title > .arrow-button .arrow
+{
+    -fx-background-color: white;
 }

@@ -12,7 +12,7 @@ public class FournisseurController {
     public static ResultSet getAll() {
         ResultSet rs = null;
         Connection connection = SingletonConnection.getConnection();
-        String SQL = "Select * from fournisseur";
+        String SQL = "Select * from projet.mouja.fournisseur";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             rs = preparedStatement.executeQuery();

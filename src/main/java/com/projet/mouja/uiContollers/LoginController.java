@@ -1,7 +1,10 @@
 package com.projet.mouja.uiContollers;
 
+import com.projet.mouja.HelloApplication;
+import com.projet.mouja.entitiesControllers.CompteController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -11,9 +14,12 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import org.controlsfx.control.Notifications;
 
+import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class LoginController {
@@ -29,13 +35,24 @@ public class LoginController {
         stage.close();
     }
 
+
     @FXML
-    public void login(ActionEvent e) {
+    public void login(ActionEvent e) throws SQLException, IOException {
         String userName = username.getText();
         String passWord = password.getText();
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        System.out.println("username = " + userName + "\npassword = " + passWord);
-        if (!userName.equals("yassine") && !passWord.equals("Yassine")) {
+        ResultSet rs = CompteController.login(userName,passWord);
+        if (rs.next()){
+            if (rs.getBoolean(4)){
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/menu-admin.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                stage.setScene(scene);
+            } else {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/menu-client.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                stage.setScene(scene);
+            }
+        } else {
             Notifications.create()
                     .owner(stage)
                     .title("Try Again!")
