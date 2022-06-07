@@ -34,7 +34,7 @@ public class FournisseurController {
             preparedStatement.setString(3,fournisseur.getPays());
             preparedStatement.setString(4,fournisseur.getVille());
             preparedStatement.setString(5,fournisseur.getEmail());
-            preparedStatement.setInt(6,fournisseur.getNumTel());
+            preparedStatement.setString(6,fournisseur.getNumTel());
 
             int i = preparedStatement.executeUpdate();
             success = (i != 0);
@@ -70,7 +70,7 @@ public class FournisseurController {
             preparedStatement.setString(3,fournisseur.getPays());
             preparedStatement.setString(4,fournisseur.getVille());
             preparedStatement.setString(5,fournisseur.getEmail());
-            preparedStatement.setInt(6,fournisseur.getNumTel());
+            preparedStatement.setString(6,fournisseur.getNumTel());
             preparedStatement.setInt(7,idf);
 
             int i = preparedStatement.executeUpdate();

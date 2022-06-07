@@ -8,9 +8,9 @@ public class FournisseurEntity {
     private String pays;
     private String ville;
     private String email;
-    private int numTel;
+    private String numTel;
 
-    public FournisseurEntity(String nom,String adresse, String pays, String ville, String email, int numTel) {
+    public FournisseurEntity(String nom,String adresse, String pays, String ville, String email, String numTel) {
         this.nom = nom;
         this.adresse = adresse;
         this.pays = pays;
@@ -22,13 +22,9 @@ public class FournisseurEntity {
     public FournisseurEntity() {
     }
 
-    public int getIdf() {
-        return idf;
-    }
+    public int getIdf() { return idf; }
 
-    public void setIdf(int idf) {
-        this.idf = idf;
-    }
+    public void setIdf(int idf) { this.idf = idf; }
 
     public String getNom() {
         return nom;
@@ -71,11 +67,11 @@ public class FournisseurEntity {
         this.email = email;
     }
 
-    public int getNumTel() {
+    public String getNumTel() {
         return numTel;
     }
 
-    public void setNumTel(int numTel) {
+    public void setNumTel(String numTel) {
         this.numTel = numTel;
     }
 

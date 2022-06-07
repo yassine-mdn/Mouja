@@ -70,4 +70,17 @@ public class CommandeController {
         }
         return rs;
     }
+
+    public static ResultSet getTable(){
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select id_cmd, c.nom, p.nom, qte, adresse_livraison, date   from projet.mouja.commande join projet.mouja.produit p on commande.idp = p.idp join projet.mouja.client c on idc = c.id";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }

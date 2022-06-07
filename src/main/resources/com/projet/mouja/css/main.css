@@ -29,9 +29,21 @@
     -fx-font-family: "Eras Bold ITC";
 }
 
+.title-orange{
+    -fx-font:  30px "Eras Bold ITC";
+    -fx-text-fill: #FFA62B;
+}
+
+.headin-orange{
+    -fx-font:  20px "Eras mid ITC";
+    -fx-text-fill: #FFAA5F;
+}
+
 .hyperlink{
     -fx-font: 15px "Eras Light ITC";
     -fx-text-fill: #489FB5;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
 }
 
 .check-box{
@@ -67,7 +79,8 @@
     -fx-font: 15px "Eras Light ITC";
 }
 
-.icon-button:pressed{
+
+.toggle-button:pressed{
     -fx-background-color: #82C0CC;
     fx-border-color: #16697A;
     -fx-border-width:  0 0 0 8;
@@ -77,11 +90,18 @@
 
 }
 
-.icon-button:hover{
+.toggle-button:selected{
+    -fx-background-color: #82C0CC;
+    -fx-background-radius: 0;
+    -fx-font: 15px "Eras Bold ITC";
+    -fx-text-fill: #16697A;
+}
+
+.toggle-button:hover{
 
 }
 
-.icon-button{
+.toggle-button{
     -fx-border-color: transparent;
     -fx-border-width: 0;
     -fx-background-radius: 0;
@@ -96,15 +116,17 @@
     -fx-icon-size: 50px;
 }
 
+.small-icon{
+    -fx-icon-color:  #FFA62B;
+    -fx-icon-size: 20px;
+}
+
 .titled-pane
 {
     -fx-text-fill:  #16697A;
     -fx-background-color: transparent;
 }
-.titled-pane:focused
-{
-    -fx-text-fill: white;
-}
+
 .titled-pane > .title
 {
     -fx-background-color: transparent;
@@ -117,22 +139,6 @@
     -fx-background-color: transparent;
 }
 
-.titled-pane > .title > .arrow-button
-{
-    -fx-background-color: white;
-    -fx-border-color: white;
-    -fx-background-insets: 0;
-    -fx-background-radius: 0;
-
-}
-
-
-
-.titled-pane:collapsed > .title > .arrow-button .arrow
-{
-    -fx-rotate: -90;
-}
-
 .titled-pane > *.content
 {
     -fx-background-color: transparent;
@@ -140,7 +146,142 @@
 
 }
 
-.titled-pane:focused > .title > .arrow-button .arrow
-{
+.settings-button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font: 15px "Eras Bold ITC";
+    -fx-text-fill: #16697A;
+}
+
+.settings-button :selected{
+
+}
+
+.settings-button:hover{
+
+}
+
+.orange-button{
+    -fx-background-color: #FFA62B;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-font: 15px "Eras Bold ITC";
+}
+
+.orange-button:hover{
+    -fx-background-color: #FFAA5F;
+}
+
+.orange-outline-button{
+    -fx-border-color: #FFA62B;
     -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-text-fill: #FFA62B;
+    -fx-font: 15px "Eras Bold ITC";
+}
+
+.orange-outline-button:hover{
+    -fx-background-color: #FFAA5F;
+    -fx-text-fill: white;
+}
+
+.table-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+.table-view .column-header-text{
+
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-padding: 0 0 5px 0;
+    -fx-font: 15px "Eras mid ITC";
+    -fx-border-color: #c9c9c9;
+    -fx-border-width:  0 0 1 0;
+
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+
+.table-row-cell:odd{
+    -fx-background-color: #eae9e9;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-font: 15px "Eras light ITC";
+    -fx-alignment: center;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-font: 15px "Eras light ITC";
+    -fx-alignment: center;
+    -fx-padding: 0.0em;
+}
+
+.table-view .table-column {
+    -fx-alignment: CENTER;
+    -fx-font: 15px "Eras light ITC";
+}
+
+.pagination > .pagination-control > .control-box {
+    -fx-spacing: 0;
+}
+
+.pagination .pagination-control > .control-box > .number-button {
+
+}
+
+/* You can control the actual button sizes here */
+.pagination > .pagination-control > .control-box > .number-button,
+.pagination > .pagination-control > .control-box > .left-arrow-button,
+.pagination > .pagination-control > .control-box > .right-arrow-button {
+    -fx-background-insets: 0, 1;
+    -fx-background-color: lightgray, #FAFAFA;
+    -fx-font: 15px "Eras mid ITC";
+    fx-fill: #FFAA5F;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+}
+
+/* Colors on hover */
+.pagination > .pagination-control > .control-box > .number-button:hover,
+.pagination > .pagination-control > .control-box > .bullet-button:hover,
+.pagination > .pagination-control > .control-box > .left-arrow-button:hover,
+.pagination > .pagination-control > .control-box > .right-arrow-button:hover {
+    -fx-background-insets: 0;
+    -fx-background-color: lightgray;
+}
+
+/* Selected toggle color */
+.pagination > .pagination-control > .control-box > .number-button:selected,
+.pagination > .pagination-control > .control-box > .bullet-button:selected{
+    -fx-background-insets: 0;
+    -fx-background-color: #FFA62B;
+    -fx-text-fill: white;
+}
+
+.pagination .pagination-control .button, .pagination .toggle-button {
+    -fx-background-color: -fx-paginator-button;
+    -fx-border-color: -fx-colour-grey;
+    fx-text-fill: #FFAA5F;
+    -fx-pref-width: 15;
+    -fx-pref-height: 15;
 }

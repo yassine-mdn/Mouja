@@ -6,9 +6,6 @@ import java.util.Objects;
 public class ProduitEntity {
 
     private int idp;
-
-
-
     private String nom;
     private String reference;
     private String category;
@@ -16,8 +13,9 @@ public class ProduitEntity {
     private Integer stock;
     private Integer qteVendue;
     private Integer idf;
+    private String nomf;
 
-    public ProduitEntity(String nom, String reference, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf) {
+    public ProduitEntity(String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf) {
         this.nom = nom;
         this.reference = reference;
         this.category = category;
@@ -109,4 +107,11 @@ public class ProduitEntity {
     }
 
 
+    public String getNomf() {
+        return nomf;
+    }
+
+    public void setNomf(String nomf) {
+        this.nomf = nomf;
+    }
 }

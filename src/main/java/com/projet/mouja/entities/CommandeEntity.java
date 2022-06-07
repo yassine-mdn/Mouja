@@ -13,6 +13,9 @@ public class CommandeEntity {
     private Integer idp;
     private Integer idc;
 
+    private String nomP;
+    private String nomC;
+
     public CommandeEntity(String adresseLivraison, Date date, Integer qte, Integer idp, Integer idc) {
         this.adresseLivraison = adresseLivraison;
         this.date = date;
@@ -20,6 +23,15 @@ public class CommandeEntity {
         this.idp = idp;
         this.idc = idc;
     }
+
+    public CommandeEntity(String adresseLivraison, Date date, Integer qte, String nomP, String nomC) {
+        this.adresseLivraison = adresseLivraison;
+        this.date = date;
+        this.qte = qte;
+        this.nomC = nomC;
+        this.nomP = nomP;
+    }
+
 
     public CommandeEntity() {
     }
@@ -86,4 +98,19 @@ public class CommandeEntity {
         return Objects.hash(idCmd, adresseLivraison, date, qte, idp, idc);
     }
 
+    public String getNomP() {
+        return nomP;
+    }
+
+    public void setNomP(String nomP) {
+        this.nomP = nomP;
+    }
+
+    public String getNomC() {
+        return nomC;
+    }
+
+    public void setNomC(String nomC) {
+        this.nomC = nomC;
+    }
 }

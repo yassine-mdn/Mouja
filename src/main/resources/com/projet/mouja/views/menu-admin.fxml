@@ -1,116 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.SearchableComboBox?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.mouja.uiContollers.MenuAdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.mouja.uiContollers.MenuAdminController">
    <children>
-      <AnchorPane fx:id="produitSide" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
+      <AnchorPane fx:id="shadowPane" prefHeight="1082.0" prefWidth="1920.0" style="-fx-background-color: rgba(0, 0,0 , 0.4);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TitledPane animated="false" layoutX="113.0" layoutY="234.0" prefHeight="288.0" prefWidth="306.0" text="Produits">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
-                     <children>
-                        <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </TitledPane>
+            <AnchorPane fx:id="ajoutProduitPane" layoutX="612.0" layoutY="73.0" prefHeight="936.0" prefWidth="697.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <children>
+                  <Label alignment="CENTER" layoutX="230.0" layoutY="64.0" styleClass="title-orange" text="Ajouter Produit" textAlignment="CENTER" />
+                  <Label layoutX="56.0" layoutY="145.0" styleClass="headin-orange" text="Référence du produit" />
+                  <TextField fx:id="fieldRefP" layoutX="56.0" layoutY="187.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="253.0" styleClass="headin-orange" text="Nom du produit" />
+                  <TextField fx:id="fieldNomP" layoutX="56.0" layoutY="292.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="362.0" styleClass="headin-orange" text="Catégorie" />
+                  <TextField fx:id="fieldCatP" layoutX="56.0" layoutY="401.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="468.0" styleClass="headin-orange" text="Prix Unitaire" />
+                  <TextField fx:id="fieldPrixP" layoutX="56.0" layoutY="510.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="576.0" styleClass="headin-orange" text="Stock" />
+                  <TextField fx:id="fieldStockP" layoutX="56.0" layoutY="615.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="685.0" styleClass="headin-orange" text="Fournisseur" />
+                  <Button layoutX="417.0" layoutY="825.0" mnemonicParsing="false" onAction="#addFournisseur" prefHeight="52.0" prefWidth="225.0" styleClass="orange-button" text="Confirmer" />
+                  <Button layoutX="56.0" layoutY="825.0" mnemonicParsing="false" onAction="#annulerAjout" prefHeight="52.0" prefWidth="225.0" styleClass="orange-outline-button" text="Annuler" />
+                  <SearchableComboBox fx:id="comboBoxF" layoutX="56.0" layoutY="727.0" prefHeight="54.0" prefWidth="586.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ajoutComptePane" layoutX="612.0" layoutY="250.0" prefHeight="622.0" prefWidth="697.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <children>
+                  <Label alignment="CENTER" layoutX="173.0" layoutY="64.0" styleClass="title-orange" text="Ajouter Compte Admin" textAlignment="CENTER" />
+                  <Label layoutX="56.0" layoutY="145.0" styleClass="headin-orange" text="Identifiant" />
+                  <TextField fx:id="fieldRefP1" layoutX="56.0" layoutY="187.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="253.0" styleClass="headin-orange" text="Mot De Passe" />
+                  <Label layoutX="56.0" layoutY="362.0" styleClass="headin-orange" text="Confirmer Mot De Passe" />
+                  <Button layoutX="413.0" layoutY="511.0" mnemonicParsing="false" onAction="#addFournisseur" prefHeight="52.0" prefWidth="225.0" styleClass="orange-button" text="Confirmer" />
+                  <Button layoutX="51.0" layoutY="511.0" mnemonicParsing="false" onAction="#annulerAjout" prefHeight="52.0" prefWidth="225.0" styleClass="orange-outline-button" text="Annuler" />
+                  <PasswordField fx:id="fieldPwdC" layoutX="55.0" layoutY="292.0" prefHeight="54.0" prefWidth="586.0" />
+                  <PasswordField layoutX="55.0" layoutY="399.0" prefHeight="54.0" prefWidth="586.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="ajoutFournisseurPane" layoutX="612.0" layoutY="73.0" prefHeight="936.0" prefWidth="697.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="197.0" layoutY="67.0" styleClass="title-orange" text="Ajouter Fournisseur" />
+                  <Label layoutX="56.0" layoutY="145.0" styleClass="headin-orange" text="Nom du Fournisseur" />
+                  <TextField fx:id="fieldNomF" layoutX="56.0" layoutY="187.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="253.0" styleClass="headin-orange" text="Addresse du Fournisseur" />
+                  <TextField fx:id="fieldAddF" layoutX="56.0" layoutY="292.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="362.0" styleClass="headin-orange" text="Pays" />
+                  <TextField fx:id="fieldPayF" layoutX="56.0" layoutY="401.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="468.0" styleClass="headin-orange" text="Ville" />
+                  <TextField fx:id="filedVilleF" layoutX="56.0" layoutY="510.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="576.0" styleClass="headin-orange" text="Email" />
+                  <TextField fx:id="fieldEmailF" layoutX="56.0" layoutY="615.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Label layoutX="56.0" layoutY="685.0" styleClass="headin-orange" text="Numéro de Télephone" />
+                  <TextField fx:id="fieldNumTelF" layoutX="56.0" layoutY="724.0" prefHeight="54.0" prefWidth="586.0" />
+                  <Button layoutX="417.0" layoutY="825.0" mnemonicParsing="false" onAction="#addFournisseur" prefHeight="52.0" prefWidth="225.0" styleClass="orange-button" text="Confirmer" />
+                  <Button layoutX="56.0" layoutY="825.0" mnemonicParsing="false" onAction="#annulerAjout" prefHeight="52.0" prefWidth="225.0" styleClass="orange-outline-button" text="Annuler" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="commandeSide" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
+      <AnchorPane prefHeight="1082.0" prefWidth="420.0">
          <children>
-            <TitledPane animated="false" layoutX="105.0" layoutY="355.0" prefHeight="288.0" prefWidth="306.0" text="Commandes">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
-                     <children>
-                        <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="commandeSide" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
+               <children>
+                  <TitledPane animated="false" layoutX="109.0" layoutY="341.0" prefHeight="288.0" prefWidth="306.0" text="Commandes">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
                            <children>
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
+                              <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Hyperlink onAction="#afficherListeCommande" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
+                                    <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </TitledPane>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="compteSide" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
+               <children>
+                  <TitledPane animated="false" layoutX="107.0" layoutY="449.0" prefHeight="288.0" prefWidth="306.0" text="Comptes">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
+                           <children>
+                              <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Hyperlink onAction="#afficherListeCompte" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
+                                    <Hyperlink onAction="#ajouterCompteClicked" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="produitSide" prefHeight="1080.0" prefWidth="316.0" style="-fx-background-color: #FFF7F1;">
+               <children>
+                  <TitledPane animated="false" layoutX="113.0" layoutY="234.0" prefHeight="288.0" prefWidth="306.0" text="Produits">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
+                           <children>
+                              <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Hyperlink onAction="#afficherListeProduit" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
+                                    <Hyperlink onAction="#ajouterProduitClicked" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="fournisseurSide" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
+               <children>
+                  <TitledPane animated="false" layoutX="105.0" layoutY="143.0" prefHeight="288.0" prefWidth="306.0" text="Fournisseur">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
+                           <children>
+                              <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Hyperlink onAction="#afficherListeFournisseur" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
+                                    <Hyperlink onAction="#ajouterFournisseurClicked" prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="compteSide" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
-         <children>
-            <TitledPane animated="false" layoutX="114.0" layoutY="447.0" prefHeight="288.0" prefWidth="306.0" text="Comptes">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
-                     <children>
-                        <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </TitledPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="fournisseurSide" layoutY="2.0" prefHeight="1080.0" prefWidth="415.0" style="-fx-background-color: #FFF7F1;">
-         <children>
-            <TitledPane animated="false" layoutX="105.0" layoutY="143.0" prefHeight="288.0" prefWidth="306.0" text="Fournisseur">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../css/main.css">
-                     <children>
-                        <VBox layoutX="49.6" layoutY="19.6" prefHeight="221.0" prefWidth="254.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Lister" textAlignment="CENTER" />
-                              <Hyperlink prefHeight="26.0" prefWidth="285.0" style="-fx-font-size: 25;" stylesheets="@../css/main.css" text="Ajouter" textAlignment="CENTER" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </TitledPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="1080.0" prefWidth="100.0" style="-fx-border-color: white; -fx-background-color: #EDE7E3; -fx-border-width: 0 1 0 0;">
+      <AnchorPane prefHeight="1080.0" prefWidth="80.0" style="-fx-border-color: white; -fx-background-color: #EDE7E3; -fx-border-width: 0 1 0 0;">
          <children>
             <ImageView fitHeight="72.0" fitWidth="80.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo-blue.png" />
                </image>
             </ImageView>
-            <Button layoutX="-1.0" layoutY="124.0" mnemonicParsing="false" onAction="#fournisseurButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css">
+            <ToggleButton fx:id="buttonFournisseur" layoutX="-1.0" layoutY="124.0" mnemonicParsing="false" onAction="#fournisseurButton" prefHeight="66.0" prefWidth="105.0" selected="true" styleClass="icon-button" stylesheets="@../css/main.css">
                <graphic>
                   <FontIcon iconLiteral="bi-people" iconSize="50" />
                </graphic>
-            </Button>
-            <Button layoutX="-2.0" layoutY="219.0" mnemonicParsing="false" onAction="#produitButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css">
+               <toggleGroup>
+                  <ToggleGroup fx:id="menu" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="buttonProduit" layoutX="-2.0" layoutY="219.0" mnemonicParsing="false" onAction="#produitButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css" toggleGroup="$menu">
                <graphic>
                   <FontIcon iconLiteral="bi-box-seam" iconSize="50" />
                </graphic>
-            </Button>
-            <Button layoutX="-2.0" layoutY="322.0" mnemonicParsing="false" onAction="#commandeButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css">
+            </ToggleButton>
+            <ToggleButton fx:id="buttonCommande" layoutX="-2.0" layoutY="322.0" mnemonicParsing="false" onAction="#commandeButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css" toggleGroup="$menu">
                <graphic>
                   <FontIcon iconLiteral="bi-clock-history" iconSize="50" text="" />
                </graphic>
-            </Button>
-            <Button layoutX="-1.0" layoutY="434.0" mnemonicParsing="false" onAction="#compteButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css">
+            </ToggleButton>
+            <ToggleButton fx:id="buttonCompte" layoutX="-1.0" layoutY="434.0" mnemonicParsing="false" onAction="#compteButton" prefHeight="66.0" prefWidth="105.0" styleClass="icon-button" stylesheets="@../css/main.css" toggleGroup="$menu">
                <graphic>
                   <FontIcon iconLiteral="bi-person" iconSize="50" styleClass="icon-button" />
                </graphic>
-            </Button>
+            </ToggleButton>
+            <ToggleButton fx:id="settingsButton" layoutX="-2.0" layoutY="974.0" mnemonicParsing="false" onAction="#settingsButton" prefHeight="66.0" prefWidth="105.0" styleClass="settings-button" stylesheets="@../css/main.css">
+               <graphic>
+                  <FontIcon iconLiteral="bi-gear" iconSize="50" styleClass="icon-button" />
+               </graphic>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="418.0" layoutY="-2.0" maxHeight="-Infinity" prefHeight="1080.0" prefWidth="1502.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane prefHeight="1080.0" prefWidth="1502.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane fx:id="produitListe" layoutX="10.0" layoutY="10.0" prefHeight="1090.0" prefWidth="1512.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
+                           <children>
+                              <CustomTextField fx:id="filtreProduit" layoutX="14.0" layoutY="14.0" onInputMethodTextChanged="#filtrageProduit" onKeyTyped="#filtrageProduit" prefHeight="54.0" prefWidth="528.0" promptText="Search dans produits" style="-fx-border-radius: 15;" />
+                              <Button layoutX="1107.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouterProduitClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-button" text="Ajouter Produit" />
+                              <Button layoutX="887.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Export" />
+                              <TableView fx:id="tableProduit" layoutX="4.0" layoutY="76.0" prefHeight="857.0" prefWidth="1333.0">
+                                 <columns>
+                                    <TableColumn fx:id="refP" prefWidth="177.0" text="reference" />
+                                    <TableColumn fx:id="nomP" minWidth="0.0" prefWidth="277.0" text="nom" />
+                                    <TableColumn fx:id="catP" prefWidth="169.0" text="categorie" />
+                                    <TableColumn fx:id="prixP" prefWidth="157.0" text="prix unitaire" />
+                                    <TableColumn fx:id="stockP" prefWidth="216.0" text="stock" />
+                                    <TableColumn fx:id="qteVendueP" prefWidth="243.0" text="quantité vendue" />
+                                    <TableColumn fx:id="fournisseurP" prefWidth="91.0" text="fournissuer" />
+                                 </columns>
+                                 <styleClass>
+                                    <String fx:value="table-view" />
+                                    <String fx:value="table-cell" />
+                                    <String fx:value="table-row-cell" />
+                                 </styleClass>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="compteListe" layoutX="10.0" layoutY="10.0" prefHeight="1100.0" prefWidth="1522.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
+                           <children>
+                              <CustomTextField layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="528.0" promptText="        Search nom fournisseur" style="-fx-border-radius: 15;" text="Search dans compte" />
+                              <Button layoutX="1107.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouterCompteClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-button" text="Ajouter Compte" />
+                              <Button layoutX="887.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Export" />
+                              <TableView fx:id="tableCompte" layoutX="4.0" layoutY="76.0" prefHeight="857.0" prefWidth="1333.0">
+                                 <columns>
+                                    <TableColumn fx:id="idC" prefWidth="177.0" text="id" />
+                                    <TableColumn fx:id="identifiantC" minWidth="0.0" prefWidth="277.0" text="identifiant" />
+                                    <TableColumn fx:id="mdpC" prefWidth="169.0" text="mot de passe" />
+                                    <TableColumn fx:id="statutC" prefWidth="169.0" text="statut" />
+                                 </columns>
+                                 <styleClass>
+                                    <String fx:value="table-view" />
+                                    <String fx:value="table-cell" />
+                                    <String fx:value="table-row-cell" />
+                                 </styleClass>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="commandeListe" layoutX="10.0" layoutY="10.0" prefHeight="1090.0" prefWidth="1512.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
+                           <children>
+                              <CustomTextField layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="528.0" promptText="Search dans Commande" style="-fx-border-radius: 15;" />
+                              <Button layoutX="1107.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="196.0" styleClass="orange-button" text="Ajouter Commande" />
+                              <Button layoutX="887.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Export" />
+                              <TableView fx:id="tableCommande" layoutX="4.0" layoutY="76.0" prefHeight="857.0" prefWidth="1333.0">
+                                 <columns>
+                                    <TableColumn fx:id="idCMD" prefWidth="177.0" text="Id Commande" />
+                                    <TableColumn fx:id="clientCMD" minWidth="0.0" prefWidth="277.0" text="Client" />
+                                    <TableColumn fx:id="produitCMD" prefWidth="169.0" text="Produit" />
+                                    <TableColumn fx:id="qteCMD" prefWidth="157.0" text="Quantité" />
+                                    <TableColumn fx:id="addresseCMD" prefWidth="332.0" text="Addresse" />
+                                    <TableColumn fx:id="dateCMD" prefWidth="220.0" text="Date" />
+                                 </columns>
+                                 <styleClass>
+                                    <String fx:value="table-view" />
+                                    <String fx:value="table-cell" />
+                                    <String fx:value="table-row-cell" />
+                                 </styleClass>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="fournisseurListe" prefHeight="1080.0" prefWidth="1502.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
+                           <children>
+                              <CustomTextField fx:id="filtreFournisseur" layoutX="14.0" layoutY="14.0" onInputMethodTextChanged="#filtrageFournisseur" onKeyTyped="#filtrageFournisseur" prefHeight="54.0" prefWidth="528.0" promptText="Search nom fournisseur" style="-fx-border-radius: 15;" />
+                              <Button layoutX="1107.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouterFournisseurClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-button" text="Ajouter Fournisseur" />
+                              <Button layoutX="887.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Export" />
+                              <TableView fx:id="tableFournisseur" layoutX="4.0" layoutY="76.0" prefHeight="857.0" prefWidth="1333.0">
+                                <columns>
+                                  <TableColumn fx:id="nomF" prefWidth="177.0" text="Nom" />
+                                  <TableColumn fx:id="adresseF" minWidth="0.0" prefWidth="277.0" text="Adresse" />
+                                    <TableColumn fx:id="paysF" prefWidth="169.0" text="Pays" />
+                                    <TableColumn fx:id="villeF" prefWidth="157.0" text="Ville" />
+                                    <TableColumn fx:id="emailF" prefWidth="332.0" text="email" />
+                                    <TableColumn fx:id="numTelF" prefWidth="220.0" text="Numéro de Téléphone" />
+                                </columns>
+                                 <styleClass>
+                                    <String fx:value="table-view" />
+                                    <String fx:value="table-cell" />
+                                    <String fx:value="table-row-cell" />
+                                 </styleClass>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
