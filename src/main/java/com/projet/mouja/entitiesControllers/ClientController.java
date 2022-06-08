@@ -18,4 +18,18 @@ public class ClientController {
         }
         return rs;
     }
+
+    public static boolean delete(int id) {
+        boolean success = false;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "delete from projet.mouja.client where id =" + id;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            int i = preparedStatement.executeUpdate();
+            success = i != 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 }

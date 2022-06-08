@@ -43,7 +43,7 @@ public class MenuAdminController implements Initializable {
     @FXML
     private AnchorPane fournisseurListe, compteListe, produitListe, commandeListe, clientListe;
 
-    @FXML Button modifierFournisseur,modifierProduit;
+    @FXML Button modifierFournisseur,modifierProduit,modifierCompte;
 
     @FXML
     private AnchorPane shadowPane, ajoutProduitPane, ajoutComptePane, ajoutFournisseurPane,modifierFournisseurPane,modifierProduitPane,modifierComptePane;
@@ -544,7 +544,8 @@ public class MenuAdminController implements Initializable {
 
     @FXML
     public void compteSelected(MouseEvent e){
-
+        selctedCompte = compteObservableList.indexOf(tableCompte.getSelectionModel().getSelectedItem());
+        modifierCompte.setDisable(false);
     }
 
     @FXML
@@ -559,7 +560,11 @@ public class MenuAdminController implements Initializable {
 
     @FXML
     public void suprimerCompte(ActionEvent e){
-
+        CompteController.delete(compteObservableList.get(selctedCompte).getId());
+        ClientController.delete(compteObservableList.get(selctedCompte).getId());
+        compteObservableList.remove(selctedCompte);
+        modifierCompte.setDisable(true);
+        tableCompte.refresh();
     }
 
     @FXML

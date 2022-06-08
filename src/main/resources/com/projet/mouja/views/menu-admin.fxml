@@ -275,34 +275,6 @@
                         <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="compteListe" layoutX="10.0" layoutY="10.0" prefHeight="1100.0" prefWidth="1522.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
-                           <children>
-                              <CustomTextField fx:id="filtreCompte" layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="528.0" promptText="Search dans compte" style="-fx-border-radius: 15;" />
-                              <Button layoutX="1107.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouterCompteClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-button" text="Ajouter Compte" />
-                              <Button layoutX="688.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Export" />
-                              <TableView fx:id="tableCompte" layoutX="4.0" layoutY="76.0" prefHeight="857.0" prefWidth="1333.0">
-                                 <columns>
-                                    <TableColumn fx:id="idC" prefWidth="177.0" text="id" />
-                                    <TableColumn fx:id="identifiantC" minWidth="0.0" prefWidth="277.0" text="identifiant" />
-                                    <TableColumn fx:id="statutC" prefWidth="169.0" text="statut" />
-                                 </columns>
-                                 <styleClass>
-                                    <String fx:value="table-view" />
-                                    <String fx:value="table-cell" />
-                                    <String fx:value="table-row-cell" />
-                                 </styleClass>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <Button layoutX="895.0" layoutY="14.0" mnemonicParsing="false" onAction="#compteClientsClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Comptes Client" />
-                           </children>
-                        </AnchorPane>
-                        <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
-                     </children>
-                  </AnchorPane>
                   <AnchorPane fx:id="fournisseurListe" prefHeight="1080.0" prefWidth="1502.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
@@ -387,6 +359,34 @@
                                  </styleClass>
                               </TableView>
                               <Button layoutX="895.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficherListeCompte" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Comptes Admin" />
+                           </children>
+                        </AnchorPane>
+                        <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="compteListe" layoutX="10.0" layoutY="10.0" prefHeight="1100.0" prefWidth="1522.0" style="-fx-background-color: #f7f4f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="81.0" layoutY="77.0" prefHeight="936.0" prefWidth="1337.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #EDE7E3; -fx-border-radius: 10;">
+                           <children>
+                              <CustomTextField fx:id="filtreCompte" layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="528.0" promptText="Search dans compte" style="-fx-border-radius: 15;" />
+                              <Button layoutX="1107.0" layoutY="14.0" mnemonicParsing="false" onAction="#ajouterCompteClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-button" text="Ajouter Compte" />
+                              <Button fx:id="modifierCompte" disable="true" layoutX="688.0" layoutY="14.0" mnemonicParsing="false" onAction="#suprimerCompte" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Supprimer Compte" />
+                              <TableView fx:id="tableCompte" layoutX="3.0" layoutY="76.0" onMouseClicked="#compteSelected" prefHeight="857.0" prefWidth="1333.0">
+                                 <columns>
+                                    <TableColumn fx:id="idC" prefWidth="177.0" text="id" />
+                                    <TableColumn fx:id="identifiantC" minWidth="0.0" prefWidth="277.0" text="identifiant" />
+                                    <TableColumn fx:id="statutC" prefWidth="169.0" text="statut" />
+                                 </columns>
+                                 <styleClass>
+                                    <String fx:value="table-view" />
+                                    <String fx:value="table-cell" />
+                                    <String fx:value="table-row-cell" />
+                                 </styleClass>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <Button layoutX="895.0" layoutY="14.0" mnemonicParsing="false" onAction="#compteClientsClicked" prefHeight="54.0" prefWidth="196.0" styleClass="orange-outline-button" text="Comptes Client" />
                            </children>
                         </AnchorPane>
                         <Pagination layoutX="594.0" layoutY="1017.0" maxPageIndicatorCount="8" pageCount="8" prefHeight="37.0" prefWidth="313.0" styleClass="number-button" />
