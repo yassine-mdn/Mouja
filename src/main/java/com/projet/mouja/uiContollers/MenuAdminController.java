@@ -43,7 +43,7 @@ public class MenuAdminController implements Initializable {
     @FXML
     private AnchorPane fournisseurListe, compteListe, produitListe, commandeListe, clientListe;
 
-    @FXML Button modifierFournisseur,modifierProduit;
+    @FXML Button modifierFournisseur,modifierProduit,modifierCompte;
 
     @FXML
     private AnchorPane shadowPane, ajoutProduitPane, ajoutComptePane, ajoutFournisseurPane,modifierFournisseurPane,modifierProduitPane,modifierComptePane;
@@ -237,6 +237,7 @@ public class MenuAdminController implements Initializable {
         ajoutFournisseurPane.setVisible(false);
         ajoutProduitPane.setVisible(false);
         modifierFournisseurPane.setVisible(false);
+        modifierProduitPane.setVisible(false);
         ajoutComptePane.toFront();
         shadowPane.toFront();
     }
@@ -544,7 +545,8 @@ public class MenuAdminController implements Initializable {
 
     @FXML
     public void compteSelected(MouseEvent e){
-
+        selctedCompte = compteObservableList.indexOf(tableCompte.getSelectionModel().getSelectedItem());
+        modifierCompte.setDisable(false);
     }
 
     @FXML
@@ -559,7 +561,11 @@ public class MenuAdminController implements Initializable {
 
     @FXML
     public void suprimerCompte(ActionEvent e){
-
+        CompteController.delete(compteObservableList.get(selctedCompte).getId());
+        ClientController.delete(compteObservableList.get(selctedCompte).getId());
+        compteObservableList.remove(selctedCompte);
+        modifierCompte.setDisable(true);
+        tableCompte.refresh();
     }
 
     @FXML
@@ -621,6 +627,8 @@ public class MenuAdminController implements Initializable {
         qteVendueP.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getQteVendue().toString()));
         fournisseurP.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getNomf()));
 
+        produitObservableList.clear();
+
         try {
             ResultSet rs = ProduitController.getTable();
             while (rs.next()) {
@@ -646,6 +654,8 @@ public class MenuAdminController implements Initializable {
         addresseCMD.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getAdresseLivraison()));
         dateCMD.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getDate().toString()));
 
+        commandeObservableList.clear();
+
         try {
             ResultSet rs = CommandeController.getTable();
             while (rs.next()) {
@@ -666,6 +676,8 @@ public class MenuAdminController implements Initializable {
         idC.setCellValueFactory(cellDate -> new ReadOnlyStringWrapper(""+cellDate.getValue().getId()));
         identifiantC.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getIdentifiant()));
         statutC.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getStatutName()));
+
+        compteObservableList.clear();
 
         try{
             ResultSet rs = CompteController.getAll();
@@ -688,6 +700,8 @@ public class MenuAdminController implements Initializable {
         villeClient.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getVille()));
         emailClient.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getEmail()));
         numTelClient.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getNumTel()));
+
+        clientObservableList.clear();
 
         try {
             ResultSet rs = ClientController.getAll();
