@@ -100,7 +100,7 @@ public class ProduitController {
     public static ResultSet getTable(){
         ResultSet rs = null;
         Connection connection = SingletonConnection.getConnection();
-        String SQL = "Select  reference, produit.nom, category, prix_unitaire, stock, qte_vendue,f.idf, f.nom from projet.mouja.produit join projet.mouja.fournisseur f on produit.idf = f.idf";
+        String SQL = "Select  idp,reference, produit.nom, category, prix_unitaire, stock, qte_vendue,f.idf, f.nom from projet.mouja.produit join projet.mouja.fournisseur f on produit.idf = f.idf";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             rs = preparedStatement.executeQuery();

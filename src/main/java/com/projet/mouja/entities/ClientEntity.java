@@ -10,9 +10,19 @@ public class ClientEntity {
     private String adresseDeFacturation;
     private String ville;
     private String email;
-    private int numTel;
+    private String numTel;
 
-    public ClientEntity(String nom, String prenom, String adresseDeFacturation, String ville, String email, int numTel) {
+    public ClientEntity(int id, String nom, String prenom, String adresseDeFacturation, String ville, String email, String numTel) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresseDeFacturation = adresseDeFacturation;
+        this.ville = ville;
+        this.email = email;
+        this.numTel = numTel;
+    }
+
+    public ClientEntity(String nom, String prenom, String adresseDeFacturation, String ville, String email, String numTel) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresseDeFacturation = adresseDeFacturation;
@@ -73,11 +83,11 @@ public class ClientEntity {
         this.email = email;
     }
 
-    public int getNumTel() {
+    public String  getNumTel() {
         return numTel;
     }
 
-    public void setNumTel(int numTel) {
+    public void setNumTel(String numTel) {
         this.numTel = numTel;
     }
 

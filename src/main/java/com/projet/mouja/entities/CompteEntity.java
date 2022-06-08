@@ -10,10 +10,21 @@ public class CompteEntity {
     private String motDePasse;
     private Boolean statut;
 
+    private String statutName;
+
+    public CompteEntity(int id, String identifiant, String motDePasse, Boolean statut) {
+        this.id = id;
+        this.identifiant = identifiant;
+        this.motDePasse = motDePasse;
+        this.statut = statut;
+        this.statutName = statut?"Admin":"Client";
+    }
+
     public CompteEntity(String identifiant, String motDePasse, Boolean statut) {
         this.identifiant = identifiant;
         this.motDePasse = motDePasse;
         this.statut = statut;
+        this.statutName = statut?"Admin":"Client";
     }
 
     public CompteEntity() {
@@ -61,6 +72,14 @@ public class CompteEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, identifiant, motDePasse, statut);
+    }
+
+    public String getStatutName() {
+        return statutName;
+    }
+
+    public void setStatutName(String statutName) {
+        this.statutName = statutName;
     }
 
 }

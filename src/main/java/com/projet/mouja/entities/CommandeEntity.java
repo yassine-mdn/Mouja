@@ -24,12 +24,13 @@ public class CommandeEntity {
         this.idc = idc;
     }
 
-    public CommandeEntity(String adresseLivraison, Date date, Integer qte, String nomP, String nomC) {
+    public CommandeEntity(int idCmd, String nomC, String nomP, int qte, String adresseLivraison, Date date) {
         this.adresseLivraison = adresseLivraison;
         this.date = date;
         this.qte = qte;
         this.nomC = nomC;
         this.nomP = nomP;
+        this.idCmd = idCmd;
     }
 
 

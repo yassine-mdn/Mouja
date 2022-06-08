@@ -25,6 +25,17 @@ public class ProduitEntity {
         this.idf = idf;
     }
 
+    public ProduitEntity(int idP, String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf) {
+        this.idp = idP;
+        this.nom = nom;
+        this.reference = reference;
+        this.category = category;
+        this.prixUnitaire = prixUnitaire;
+        this.stock = stock;
+        this.qteVendue = qteVendue;
+        this.idf = idf;
+    }
+
     public ProduitEntity() {
     }
 

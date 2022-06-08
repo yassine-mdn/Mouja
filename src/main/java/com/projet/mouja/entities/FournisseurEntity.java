@@ -19,6 +19,16 @@ public class FournisseurEntity {
         this.numTel = numTel;
     }
 
+    public FournisseurEntity(int idF, String nom,String adresse, String pays, String ville, String email, String numTel) {
+        this.idf = idF;
+        this.nom = nom;
+        this.adresse = adresse;
+        this.pays = pays;
+        this.ville = ville;
+        this.email = email;
+        this.numTel = numTel;
+    }
+
     public FournisseurEntity() {
     }
 

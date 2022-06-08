@@ -236,6 +236,10 @@
     -fx-padding: 0.0em;
 }
 
+.table-row-cell:selected{
+    -fx-background-color: #FFAA5F;
+}
+
 .table-view .table-column {
     -fx-alignment: CENTER;
     -fx-font: 15px "Eras light ITC";
