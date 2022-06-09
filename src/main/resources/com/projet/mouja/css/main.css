@@ -98,6 +98,31 @@
 }
 
 
+.invisible-button{
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.invisible-button:hover{
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.invisible-button:pressed{
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.border-filed{
+    -fx-background-color:  rgba(255, 255,255 , 0.4);
+    -fx-background-radius: 15;
+    -fx-border-color: #FFA62B;
+    -fx-border-radius: 15;
+    -fx-font: 15px "Eras mid ITC";
+    -fx-text-fill: grey;
+}
+
+
 .toggle-button:pressed{
     -fx-background-color: #82C0CC;
     fx-border-color: #16697A;
@@ -216,6 +241,20 @@
     -fx-text-fill: white;
 }
 
+.semi-transparent-button{
+    -fx-background-color: rgba(255, 166, 43, 0.44);
+    -fx-background-radius: 15;
+    -fx-border-color: #FFA62B;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-font: 15px "Eras Bold ITC";
+    -fx-text-fill: White;
+}
+
+.semi-transparent-button:hover{
+    -fx-background-color: #FFAA5F;
+}
+
 .table-view .scroll-bar * {
     -fx-min-width: 0;
     -fx-pref-width: 0;
@@ -316,4 +355,15 @@
     fx-text-fill: #FFAA5F;
     -fx-pref-width: 15;
     -fx-pref-height: 15;
+}
+
+.title-light-blue{
+    -fx-font: 25px "Eras mid ITC";
+    -fx-text-fill: #489FB5;
+}
+
+.rating > .container > .button {
+    -fx-background-color: transparent;
+    -fx-padding: 16 16;
+    -fx-background-image-repeat: no-repeat;
 }

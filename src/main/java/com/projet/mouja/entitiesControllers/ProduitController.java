@@ -8,10 +8,63 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProduitController {
+
     public static ResultSet getAll() {
         ResultSet rs = null;
         Connection connection = SingletonConnection.getConnection();
-        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url from projet.mouja.produit";
+        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url,rating from projet.mouja.produit";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static ResultSet sortRating(){
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url,rating from projet.mouja.produit order by rating desc ";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static  ResultSet priceHighToLow(){
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url,rating from projet.mouja.produit order by prix_unitaire desc ";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static ResultSet priceLowToHight(){
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url,rating from projet.mouja.produit order by prix_unitaire asc";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public static ResultSet mostPopular(){
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url,rating from projet.mouja.produit order by  qte_vendue desc ";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             rs = preparedStatement.executeQuery();
@@ -82,13 +135,13 @@ public class ProduitController {
         return success;
     }
 
-    public static boolean updateStock(int idP){
+    public static boolean updateStock(int ref){
         boolean success = false;
         Connection connection = SingletonConnection.getConnection();
-        String SQL = "update projet.mouja.produit set stock = stock-1 , qte_vendue = qte_vendue+1 where idp = ? ;";
+        String SQL = "update projet.mouja.produit set stock = stock-1 , qte_vendue = qte_vendue+1 where reference = ? ;";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setInt(1,idP);
+            preparedStatement.setInt(1,ref);
             int i = preparedStatement.executeUpdate();
             success = i != 0;
         } catch (SQLException e) {
@@ -110,6 +163,38 @@ public class ProduitController {
         return rs;
     }
 
+    public static boolean decrStockby(int dec, int id){
+        boolean success = false;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "update projet.mouja.produit set stock = stock-? , qte_vendue = qte_vendue+? where idp = ? ;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setInt(1,dec);
+            preparedStatement.setInt(2,dec);
+            preparedStatement.setInt(3,id);
+            int i = preparedStatement.executeUpdate();
+            success = i != 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 
+    public static int  getIdFromRef(String ref) throws SQLException {
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select idp from projet.mouja.produit where reference = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1,ref);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (rs.next())
+            return rs.getInt(1);
+        else
+            return -1;
+    }
 
 }

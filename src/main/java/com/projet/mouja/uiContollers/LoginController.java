@@ -56,6 +56,7 @@ public class LoginController {
                 stage.setScene(scene);
                 storeFrontController.setUserId(rs.getInt(1));
             } else {
+                storeFrontController.setUserId(rs.getInt(1));
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/store-front.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage.setScene(scene);

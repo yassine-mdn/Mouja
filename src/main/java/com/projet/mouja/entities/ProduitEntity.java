@@ -15,6 +15,8 @@ public class ProduitEntity {
     private Integer idf;
     private String imagePath = "C:\\Users\\yassine\\IdeaProjects\\JEE\\JavaFX-test\\cf\\Mouja\\src\\main\\resources\\com\\projet\\mouja\\images\\products\\imane-not-found.jpg";
 
+    private double rating;
+
     private String nomf;
 
     public ProduitEntity(String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf) {
@@ -41,7 +43,7 @@ public class ProduitEntity {
     public ProduitEntity() {
     }
 
-    public ProduitEntity(int idp, String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf, String imagePath) {
+    public ProduitEntity(int idp, String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf, String imagePath, double rating) {
         this.idp = idp;
         this.reference = reference;
         this.nom = nom;
@@ -51,7 +53,8 @@ public class ProduitEntity {
         this.qteVendue = qteVendue;
         this.idf = idf;
         if (imagePath != null)
-         this.imagePath = imagePath;
+            this.imagePath = imagePath;
+        this.rating = rating;
     }
 
 
@@ -147,5 +150,13 @@ public class ProduitEntity {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }

@@ -90,4 +90,22 @@ public class CompteController {
         }
         return rs;
     }
+
+    public static int getIdFromIdentifiant(String identifiant) throws SQLException {
+        ResultSet rs = null;
+        Connection connection = SingletonConnection.getConnection();
+        String SQL = "Select id from projet.mouja.compte where identifiant = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1,identifiant);
+            rs = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int id = -1;
+        if (rs.next()) {
+            id = rs.getInt("id");
+        }
+        return id;
+    }
 }
