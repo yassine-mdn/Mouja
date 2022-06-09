@@ -35,6 +35,13 @@ public class LoginController {
         stage.close();
     }
 
+    @FXML
+    public void store(ActionEvent e) throws IOException {
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/store-front.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+    }
 
     @FXML
     public void login(ActionEvent e) throws SQLException, IOException {
@@ -47,8 +54,9 @@ public class LoginController {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/menu-admin.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage.setScene(scene);
+                storeFrontController.setUserId(rs.getInt(1));
             } else {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/menu-client.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/store-front.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage.setScene(scene);
             }

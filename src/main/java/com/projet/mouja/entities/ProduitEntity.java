@@ -6,13 +6,15 @@ import java.util.Objects;
 public class ProduitEntity {
 
     private int idp;
-    private String nom;
     private String reference;
+    private String nom;
     private String category;
     private Double prixUnitaire;
     private Integer stock;
     private Integer qteVendue;
     private Integer idf;
+    private String imagePath = "C:\\Users\\yassine\\IdeaProjects\\JEE\\JavaFX-test\\cf\\Mouja\\src\\main\\resources\\com\\projet\\mouja\\images\\products\\imane-not-found.jpg";
+
     private String nomf;
 
     public ProduitEntity(String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf) {
@@ -37,6 +39,19 @@ public class ProduitEntity {
     }
 
     public ProduitEntity() {
+    }
+
+    public ProduitEntity(int idp, String reference, String nom, String category, Double prixUnitaire, Integer stock, Integer qteVendue, Integer idf, String imagePath) {
+        this.idp = idp;
+        this.reference = reference;
+        this.nom = nom;
+        this.category = category;
+        this.prixUnitaire = prixUnitaire;
+        this.stock = stock;
+        this.qteVendue = qteVendue;
+        this.idf = idf;
+        if (imagePath != null)
+         this.imagePath = imagePath;
     }
 
 
@@ -124,5 +139,13 @@ public class ProduitEntity {
 
     public void setNomf(String nomf) {
         this.nomf = nomf;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

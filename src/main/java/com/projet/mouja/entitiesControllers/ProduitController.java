@@ -11,7 +11,7 @@ public class ProduitController {
     public static ResultSet getAll() {
         ResultSet rs = null;
         Connection connection = SingletonConnection.getConnection();
-        String SQL = "Select idp, nom , reference, category, prix_unitaire, stock, qte_vendue, idf from projet.mouja.produit";
+        String SQL = "Select idp, reference , nom, category, prix_unitaire, stock, qte_vendue, idf,image_url from projet.mouja.produit";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             rs = preparedStatement.executeQuery();

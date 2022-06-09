@@ -39,6 +39,18 @@
     -fx-text-fill: #FFAA5F;
 }
 
+.headin-grey{
+    -fx-font:  25px "Eras mid ITC";
+    -fx-text-fill: #9a9a9a;
+}
+
+.small-headin{
+    -fx-font:  15px "Eras mid ITC";
+    -fx-text-fill: #9a9a9a;
+}
+
+
+
 .hyperlink{
     -fx-font: 15px "Eras Light ITC";
     -fx-text-fill: #489FB5;
@@ -72,6 +84,12 @@
 .text-field{
     -fx-background-radius: 5;
     -fx-font: 15px "Eras Light ITC";
+}
+
+.transparent-field{
+    -fx-background-color: transparent;
+    -fx-border-color: #9a9a9a;
+    -fx-border-width: 0 0 1 0;
 }
 
 .password-field{
@@ -113,6 +131,16 @@
 .ikonli-font-icon {
 
     -fx-icon-color:  #16697A;
+    -fx-icon-size: 50px;
+}
+
+.gray-icon {
+    -fx-icon-color:  #9a9a9a;
+    -fx-icon-size: 25px;
+}
+
+.gray-icon-big {
+    -fx-icon-color:  #9a9a9a;
     -fx-icon-size: 50px;
 }
 

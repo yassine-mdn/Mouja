@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.projet.mouja.uiContollers.produitController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox alignment="CENTER_LEFT" prefHeight="441.0" prefWidth="364.0" style="-fx-border-color: #9a9a9a; -fx-border-width: 2; -fx-background-color: white;" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projet.mouja.uiContollers.produitController">
+   <children>
+      <ImageView fx:id="image" fitHeight="250.0" fitWidth="360.0" pickOnBounds="true" style="-fx-border-color: #9a9a9a; -fx-border-width: 2; -fx-border-radius: 10;">
+         <image>
+            <Image url="@../images/products/imane-not-found.jpg" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="360.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="76.0" styleClass="small-headin" text="Reférence:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="ref" prefHeight="26.0" prefWidth="76.0" styleClass="small-headin" />
+         </children>
+      </HBox>
+      <Pane prefHeight="17.0" prefWidth="360.0" />
+      <Label fx:id="nom" prefHeight="31.0" prefWidth="316.0" style="-fx-font-size: 20;" text="Label">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+      <Pane layoutX="12.0" layoutY="318.0" prefHeight="15.0" prefWidth="360.0" />
+      <Label prefHeight="26.0" prefWidth="332.0" styleClass="small-headin" text="Price:">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="360.0">
+         <children>
+            <Label fx:id="prix" prefHeight="31.0" prefWidth="157.0" style="-fx-font-size: 20;" text="Prix">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <Pane prefHeight="63.0" prefWidth="117.0" />
+            <FontIcon iconLiteral="bi-cart-plus" onMouseClicked="#addToCart" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
